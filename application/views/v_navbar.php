@@ -1,7 +1,7 @@
  <body>
      <!-- Main navbar -->
      <div class="navbar navbar-expand-md navbar-dark">
-         <div class="navbar-brand wmin-0 mr-md-auto">
+         <div class="navbar-brand wmin-0 ml-3 mr-md-auto">
              <a href=" index.html" class="d-inline-block">
                  <img src="<?= base_url(); ?>assets/vendor/images/logo_light.png" alt="">
              </a>
@@ -16,12 +16,12 @@
          <div class="collapse navbar-collapse" id="navbar-mobile">
              <ul class="navbar-nav ml-md-auto">
                  <li class="nav-item dropdown dropdown-user">
-                     <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+                     <a href="#" class="navbar-nav-link" data-toggle="dropdown">
                          <img src="<?= base_url(); ?>assets/vendor/images/placeholders/placeholder.jpg" class="rounded-circle" alt="">
                          <span>Victoria</span>
                      </a>
 
-                     <div class="dropdown-menu dropdown-menu-right">
+                     <div class="dropdown-menu dropdown-menu-right" id="oke">
                          <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
                          <a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
                          <a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>

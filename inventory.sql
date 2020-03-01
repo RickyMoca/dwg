@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v11.11 (64 bit)
+SQLyog Ultimate v11.11 (32 bit)
 MySQL - 5.5.5-10.4.11-MariaDB : Database - inventory
 *********************************************************************
 */
@@ -123,11 +123,11 @@ CREATE TABLE `todos` (
   `note` text DEFAULT NULL,
   `due_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id_todos`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `todos` */
 
-insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`Message_todos`,`status`,`note`,`due_date`) values (1,'DWG02201','2020-02-21 20:58:56','DWG02201','#2323232323 - KONFIRMASI','Pesanan dibatalkan',0,'Urgent euyyy',NULL),(2,'DWG02203','2020-02-24 01:20:42','DWG02203','#2323232352 - Alamat kurang lengkap','Tolong konfrim ya ini lamat ga lengkap ',0,'oke',NULL);
+insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`Message_todos`,`status`,`note`,`due_date`) values (1,'DWG02201','2020-02-21 20:58:56','DWG02203','#2323232352 - Alamat kurang lengkap yeuh kumha euy ','Pesanan dibatalkan',1,'Urgent euyyy',NULL),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352 - 2','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,'oke',NULL),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352 - Ini pesan untuk admin ya','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,NULL,NULL);
 
 /*Table structure for table `todos_category` */
 
@@ -178,7 +178,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`name`,`email`,`image`,`password`,`role_id`,`is_active`,`date_created`) values ('DWG02201','Admin','admin@dwg.id','default.jpg','$2y$10$tHEr.E9heTJph8hmmKcV6.n/jo1Yw9j6/tzjJB3nbFaj4I/wSTbdG',1,1,1582223900),('DWG02203','Sonya','sonya@gmail.com','default.jpg','$2y$10$Weqh/F2DEd34wkn5R1XZF.nR9u1/DpDMjb1Zkj6EP4CmR.5Dg90Ra',1,1,1582515537);
+insert  into `user`(`id`,`name`,`email`,`image`,`password`,`role_id`,`is_active`,`date_created`) values ('DWG02201','ricky','admin@dwg.id','default.jpg','$2y$10$LvKjG6Hg0PjjIDjjKk7iDuvKV5Mr2CixeuwSQYKvViJ/aVUq147sO',1,1,0),('DWG03202','Mohamad Ricky','inventory.th@gmail.com','default.jpg','$2y$10$LvKjG6Hg0PjjIDjjKk7iDuvKV5Mr2CixeuwSQYKvViJ/aVUq147sO',1,1,1583081659),('DWG03203','Muhammad Ferdian','ferdi_0707@yahoo.co.id','default.jpg','$2y$10$xiED3uQoRPOOsbjgv5wjSOoFqlUjK9I0peZuxCYyuurHKfbmEVg2S',2,1,1583081706),('DWG03204','Bagus nugraha','mbagus2@dwg.id','default.jpg','$2y$10$z5jCE9FDCKbLGOsEbzgzsennevZ18KBkJsShuCMcEqZSZUgSq3UAi',1,1,1583081897),('DWG03205','Mahfads','mahfads@yahoo.id','default.jpg','$2y$10$hnT01YT4le4Rke/1Co8EIeAiKOzdNTEYRL8RZRDU/AWDPXTt63IBW',3,2,1583085734);
 
 /*Table structure for table `user_access_menu` */
 
@@ -211,7 +211,7 @@ CREATE TABLE `user_menu` (
 
 /*Data for the table `user_menu` */
 
-insert  into `user_menu`(`id`,`menu`) values (1,'Admin'),(2,'Warehouse'),(3,'Cs');
+insert  into `user_menu`(`id`,`menu`) values (1,'Admin'),(2,'Warehouse'),(3,'Todo');
 
 /*Table structure for table `user_role` */
 
@@ -247,7 +247,7 @@ CREATE TABLE `user_sub_menu` (
 
 /*Data for the table `user_sub_menu` */
 
-insert  into `user_sub_menu`(`id`,`menu_id`,`title`,`url`,`icon`,`is_active`,`position`) values (1,1,'Dashboard','admin','icon-speedometer',0,2),(2,2,'Inventory','user/inventory','ti-package',0,3),(3,2,'In Bound','user/purchase','ti-check-box',0,4),(4,2,'Return','user/return','icon-refresh',0,5),(5,2,'Sales','user/sales','ti-money',0,6),(6,3,'Home','cs','icon-home',1,1),(7,3,'Todolist','cs/todolist','ti-check-box',1,7),(11,1,'Manage User','admin','ti-user',1,8);
+insert  into `user_sub_menu`(`id`,`menu_id`,`title`,`url`,`icon`,`is_active`,`position`) values (1,1,'Dashboard','admin','icon-home4 mr-2',0,2),(2,2,'Inventory','user/inventory','icon-home4 mr-2',0,3),(3,2,'In Bound','user/purchase','icon-home4 mr-2',0,4),(4,2,'Return','user/return','icon-home4 mr-2',0,5),(5,2,'Sales','user/sales','icon-home4 mr-2',0,6),(6,3,'Home','todo','icon-home4',1,1),(7,3,'Todolist','todo/todolist','icon-clipboard2',1,7),(11,1,'Manage User','admin','icon-user',1,8);
 
 /* Function  structure for function  `get_id_user` */
 

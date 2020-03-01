@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><?=$title?></title>
+    <title><?= $title ?></title>
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -22,6 +22,8 @@
     <script src="<?= base_url(); ?>assets/vendor/js/main/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/loaders/blockui.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/slinky.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/ripple.min.js"></script>
+
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
@@ -32,6 +34,7 @@
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/moment/moment.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/pickers/daterangepicker.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/sticky.min.js"></script>
+
 
     <script src="assets/js/app.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/dashboard.js"></script>
