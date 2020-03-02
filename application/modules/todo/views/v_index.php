@@ -1,36 +1,78 @@
-<div class="col-xl-12 col-md-12">
-    <div class="card card-shadow mb-4">
-        <div class="card-body">
-            <div class=" widget-action-link">
-                <div class="dropdown">
-                    <a href="#" class="btn btn-transparent text-secondary dropdown-hover p-0" data-toggle="dropdown">
-                        <i class=" vl_ellipsis-fill-h"></i>
+<div class="col-md-5">
+    <div class="card">
+        <div class="card-body bg-dark text-center card-img-top" style="background-image: url(assets/vendor/images/backgrounds/panel_bg.png); background-size: contain;">
+            <div class="card-img-actions d-inline-block mb-3">
+                <img class="img-fluid rounded-circle" src="assets/vendor/images/demo/users/face11.jpg" width="170" height="170" alt="">
+                <div class="card-img-actions-overlay rounded-circle">
+                    <a href="#" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round">
+                        <i class="icon-plus3"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right vl-dropdown">
-                        <a class="dropdown-item" href="#"> Edit</a>
-                        <a class="dropdown-item" href="#"> Delete</a>
-                        <a class="dropdown-item" href="#"> Settings</a>
-                    </div>
+                    <a href="user_pages_profile.html" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round ml-2">
+                        <i class="icon-link"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="text-center">
-                <div class="mt-4 mb-3">
-                    <img class="rounded-circle" src="<?= base_url(); ?>assets/img/avatar/avatar-large3.jpg" width="85" alt="">
-                </div>
-                <?php $name = $this->session->userdata('name');
-                $date = $this->session->userdata('date_created') ?>
-                <h5 class="text-uppercase mb-0"><?= $name ?></h5>
-                <p class="text-muted mb-0">Customer Service </p>
-                <div class="rattings mb-4">
-                    <p>Member since <?= $date ?></p>
-                </div>
+            <?php $name = $this->session->userdata('name');
+            $date = $this->session->userdata('date_created') ?>
+            <h6 class="font-weight-semibold mb-0"><?= $name ?></h6>
+            <span class="d-block opacity-75">Member since <?= $date ?></span>
 
-                <div class="mb-2">
-                    <a href="#" class="btn btn-sm btn-pill btn-dark pl-4 pr-4">Edit Profile</a>
+            <div class="list-icons list-icons-extended mt-3">
+                <a href="#" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Google Drive"><i class="icon-google-drive"></i></a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <ul class="nav nav-sidebar mb-2">
+                <li class="nav-item">
+                    <a href="login_advanced.html" class="nav-list active">
+                        <i class="icon-cogs mr-2"></i>
+                        Edit Profile
+                    </a>
+                </li>
+
+                <li class="nav-item-divider"></li>
+
+                <li class="nav-item">
+                    <a href="#schedule" class="nav-list">
+                        <i class="icon-calendar3 mr-2"></i>
+                        My assignment
+                        <span class="badge bg-danger badge-pill">29</span>
+                    </a>
+                </li>
+
+                <li class="nav-item-divider"></li>
+
+                <li class="nav-item">
+                    <a href="login_advanced.html" class="nav-list">
+                        <i class="icon-switch2 mr-2"></i>
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-7">
+    <div class="card">
+        <div class="card-body text-center card-img-top" style="background-image: url(assets/vendor/images/backgrounds/panel_bg.png); background-size: contain;">
+            <div class="card-img-actions d-inline-block mb-3">
+                <img class="img-fluid rounded-circle" src="assets/vendor/images/demo/users/face11.jpg" width="170" height="170" alt="">
+                <div class="card-img-actions-overlay rounded-circle">
+                    <a href="#" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round">
+                        <i class="icon-plus3"></i>
+                    </a>
+                    <a href="user_pages_profile.html" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round ml-2">
+                        <i class="icon-link"></i>
+                    </a>
                 </div>
             </div>
+
 
         </div>
+
     </div>
 </div>

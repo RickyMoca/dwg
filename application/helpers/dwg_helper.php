@@ -29,6 +29,7 @@
             {
                 $ci = get_instance();
                 $data['load_content'] = $ci->load->view($template, $data, true);
+                $ci->load->view('v_header');
                 $ci->load->view('auth.php', $data);
             }
 

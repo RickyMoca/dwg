@@ -1,93 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<body>
+  <!-- Page content -->
+  <div class="page-content">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Mosaddek">
+    <!-- Main content -->
+    <div class="content-wrapper">
+      <!-- Content area -->
+      <div class="content d-flex justify-content-center mt-5">
+        <div class="login-form">
+          <div class="card mb-0">
+            <div class="card-body">
+              <div class="text-center mb-3">
 
-  <!--favicon icon-->
-  <link rel="icon" type="image/png" href="<?= base_url(); ?>assets/img/favicon.html">
+                <i class="icon-lock icon-2x text-slate-300 border-slate-200 border-3 rounded-round p-2 mb-2 mt-1"></i>
+                <!-- <h5 class="mb-0">Login to your account</h5> -->
+                <span class="d-block text-muted">Enter your credentials below</span>
+                <small><?= $this->session->flashdata('message'); ?></small>
+              </div>
 
-  <title><?= $title ?></title>
+              <!-- Login form -->
+              <?= $load_content ?>
+              <!-- /login form -->
 
-  <!--web fonts-->
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
-  <!--bootstrap styles-->
-  <link href="<?= base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!--icon font-->
-  <link href="<?= base_url(); ?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/dashlab-icon/dashlab-icon.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/themify-icons/css/themify-icons.css" rel="stylesheet">
-  <link href="<?= base_url(); ?>assets/vendor/weather-icons/css/weather-icons.min.css" rel="stylesheet">
-
-  <!--custom scrollbar-->
-  <link href="<?= base_url(); ?>assets/vendor/m-custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet">
-
-  <!--jquery dropdown-->
-  <link href="<?= base_url(); ?>assets/vendor/jquery-dropdown-master/jquery.dropdown.css" rel="stylesheet">
-
-  <!--jquery ui-->
-  <link href="<?= base_url(); ?>assets/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-
-  <!--iCheck-->
-  <link href="<?= base_url(); ?>assets/vendor/icheck/skins/all.css" rel="stylesheet">
-
-  <!--custom styles-->
-  <link href="<?= base_url(); ?>assets/css/main.css" rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-    <script src="<?= base_url(); ?>assets/vendor/html5shiv.js"></script>
-    <script src="<?= base_url(); ?>assets/vendor/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body class="login-bg">
-
-  <div class="col-lg-12">
-    <!--login form-->
-    <div class="login-form mt-5">
-      <h4 class="text-uppercase text-dark text-left"><i class="fa fa-lock" aria-hidden="true"></i> <?= $card_titel ?></h4>
-      <div class="form-divider-atas"></div>
-
-      <!-- load form disi -->
-      <?= $load_content ?>
-      <!-- end Load kontent  -->
-
-      <!-- footer Login -->
-      <div class="text-center">
-        <div class="form-divider-bottom"></div>
-        <em>2020 All Right &copy; Reserved By Mohamad Ricky</em>
-        .<p class="text-dark"> Www.Digitalwinning.id </p>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- /content area -->
+
     </div>
-    <!-- End Footer Login -->
-
-
+    <!-- /main content -->
   </div>
-
-
-  <!--basic scripts-->
-  <script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/jquery-ui/jquery-ui.min.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/popper/popper.min.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/jquery-dropdown-master/jquery.dropdown.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/m-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="<?= base_url(); ?>assets/vendor/icheck/skins/icheck.min.js"></script>
-
-  <!--[if lt IE 9]>
-    <script src="<?= base_url(); ?>assets/vendor/modernizr.js"></script>
-    <![endif]-->
-
-  <!--basic scripts initialization-->
-  <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
-</body>
-
-</html>
+  <!-- /page content -->
