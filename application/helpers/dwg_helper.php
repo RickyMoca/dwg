@@ -19,8 +19,7 @@
                 $ci = get_instance();
                 $data['load_content'] = $ci->load->view($template, $data, true);
                 $ci->load->view('v_header');
-                $ci->load->view('v_navbar');
-                $ci->load->view('v_page_header', $data);
+                $ci->load->view('v_navbar', $data);
                 $ci->load->view('v_content', $data);
                 $ci->load->view('v_footer');
             }

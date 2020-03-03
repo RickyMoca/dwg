@@ -5,7 +5,7 @@
     <div class="content-wrapper">
 
         <!-- Content area -->
-        <div class="content">
+        <div class="content mt-3">
             <div class="row mx-auto">
                 
                     <?= $load_content; ?>

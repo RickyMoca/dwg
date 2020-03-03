@@ -1,11 +1,8 @@
  <body>
      <!-- Main navbar -->
      <div class="navbar navbar-expand-md navbar-dark">
-         <div class="navbar-brand wmin-0 ml-3 mr-md-auto">
-             <a href=" index.html" class="d-inline-block">
-                 <img src="<?= base_url(); ?>assets/vendor/images/logo_light.png" alt="">
-             </a>
-         </div>
+         <div class="navbar-brand wmin-0 ml-3 mr-md-auto"></div>
+         <div class="my-auto"><i class="mi-streetview mr-1"></i>Digital <strong>Winning </strong></div>
 
          <div class="d-md-none">
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
@@ -15,10 +12,10 @@
 
          <div class="collapse navbar-collapse" id="navbar-mobile">
              <ul class="navbar-nav ml-md-auto">
-                 <li class="nav-item dropdown dropdown-user">
+                 <li class="nav-item dropdown dropdown-user mr-4">
                      <a href="#" class="navbar-nav-link" data-toggle="dropdown">
-                         <img src="<?= base_url(); ?>assets/vendor/images/placeholders/placeholder.jpg" class="rounded-circle" alt="">
-                         <span>Victoria</span>
+                         <img src="<?= base_url(); ?>assets/vendor/images/placeholders/pic.png" class="rounded-circle" alt="">
+                         <span><?= $this->session->userdata('name');?></span>
                      </a>
 
                      <div class="dropdown-menu dropdown-menu-right" id="oke">
@@ -40,7 +37,7 @@
      <div class="navbar navbar-expand-md navbar-light navbar-sticky">
          <div class="text-center d-md-none w-100">
              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-navigation">
-                 <i class="icon-arrow-down15"></i> Menu <i class="icon-arrow-down15"></i>
+                 <i class="mi-storage"></i> <strong>MENU</strong>
              </button>
          </div>
 
@@ -92,6 +89,19 @@
              <?php endforeach; ?>
 
          </div>
+         <!-- Page header -->
+         <div class="page-header">
+             <div class="page-header-content header-elements-md-inline">
+
+                 <div class="header-elements d-none py-0 mb-3 mb-md-0">
+                     <div class="breadcrumb">
+                         <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                         <span class="breadcrumb-item active">Dashboard</span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- /page header -->
      </div>
      <?= $this->session->flashdata('message'); ?>
      <!-- /secondary navbar -->
