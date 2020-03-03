@@ -29,14 +29,15 @@
     <!-- Theme JS files -->
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/visualization/d3/d3.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/styling/uniform.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/styling/switch.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/moment/moment.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/pickers/daterangepicker.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/ui/sticky.min.js"></script>
 
 
-    <script src="assets/js/app.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/dashboard.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/navbar_multiple_sticky.js"></script>
     <!-- /theme JS files -->
@@ -47,6 +48,7 @@
 
     <script src="<?= base_url(); ?>assets/js/app.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/datatables_basic.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/form_checkboxes_radios.js"></script>
     <!-- /theme JS files -->
 
 </head>
