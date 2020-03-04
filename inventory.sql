@@ -118,16 +118,16 @@ CREATE TABLE `todos` (
   `date_created` datetime DEFAULT NULL,
   `user_recived` varchar(20) DEFAULT NULL,
   `subject_todos` varchar(255) DEFAULT NULL,
-  `Message_todos` text DEFAULT NULL,
+  `message_todos` text DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `note` text DEFAULT NULL,
   `due_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id_todos`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `todos` */
 
-insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`Message_todos`,`status`,`note`,`due_date`) values (1,'DWG02201','2020-02-21 20:58:56','DWG02203','#2323232352 - Alamat kurang lengkap yeuh kumha euy ','Pesanan dibatalkan',1,'Urgent euyyy',NULL),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352 - 2','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,'oke',NULL),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352 - Ini pesan untuk admin ya','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,NULL,NULL);
+insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`message_todos`,`status`,`note`,`due_date`) values (1,'DWG02203','2020-02-21 20:58:56','DWG02201','#2323232352','Pesanan dibatalkan',0,'Urgent euyyy','2020-03-04 21:58:15'),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,NULL,'2020-03-06 21:58:39'),(4,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(5,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(6,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(7,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19');
 
 /*Table structure for table `todos_category` */
 
@@ -178,7 +178,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`name`,`email`,`image`,`password`,`role_id`,`is_active`,`date_created`) values ('DWG02201','ricky','admin@dwg.id','default.jpg','$2y$10$LvKjG6Hg0PjjIDjjKk7iDuvKV5Mr2CixeuwSQYKvViJ/aVUq147sO',1,1,0),('DWG03202','Mohamad Ricky','inventory.th@gmail.com','default.jpg','$2y$10$LvKjG6Hg0PjjIDjjKk7iDuvKV5Mr2CixeuwSQYKvViJ/aVUq147sO',1,1,1583081659),('DWG03203','Muhammad Ferdian','ferdi_0707@yahoo.co.id','default.jpg','$2y$10$xiED3uQoRPOOsbjgv5wjSOoFqlUjK9I0peZuxCYyuurHKfbmEVg2S',2,1,1583081706),('DWG03204','Bagus nugraha','mbagus2@dwg.id','default.jpg','$2y$10$z5jCE9FDCKbLGOsEbzgzsennevZ18KBkJsShuCMcEqZSZUgSq3UAi',1,1,1583081897),('DWG03205','Mahfads','mahfads@yahoo.id','default.jpg','$2y$10$hnT01YT4le4Rke/1Co8EIeAiKOzdNTEYRL8RZRDU/AWDPXTt63IBW',3,2,1583085734);
+insert  into `user`(`id`,`name`,`email`,`image`,`password`,`role_id`,`is_active`,`date_created`) values ('DWG02201','Mohamad Ricky','admin@dwg.id','default.jpg','$2y$10$LvKjG6Hg0PjjIDjjKk7iDuvKV5Mr2CixeuwSQYKvViJ/aVUq147sO',1,1,1583081659),('DWG03204','Muhamad Bagus N','bagus@dwg.id','default.jpg','$2y$10$XdO.ZaMdcacM6AaD4HlWfuhGi97vhSFFPMnW7HgbPPvLnGME/RJIS',3,1,1583337669),('DWG03205','Yanti Mulyani','yanti@dwg.id','default.jpg','$2y$10$rXFGlxh85QFO.rXqkVwfLelaOxBUcBaOwlFpjK60CUj5AiGixWhbm',3,1,1583337713),('DWG03206','Sarah Nurkhaliza','sarah@dwg.id','default.jpg','$2y$10$g5emfuCzNORe56aotyB/f.qdCQ9vpCEw2qmPPaImexSpf.zeiig1K',1,1,1583337779),('DWG03207','Muhammad Ferdian','ferdi@dwg.id','default.jpg','$2y$10$hMN9gmMCsqL9xvJGtLPnleZoL9YdHsgTdb87Z/1Jb61XIUhk2zE.q',1,1,1583337831),('DWG03208','Sonya','sonya@dwg.id','default.jpg','$2y$10$eKaZOHeabIQR3xUK6TLmieVOePr6XGw1E/AWMgr1aiOd1b1lJiwRG',2,1,1583352050);
 
 /*Table structure for table `user_access_menu` */
 
@@ -193,11 +193,11 @@ CREATE TABLE `user_access_menu` (
   KEY `menu_id` (`menu_id`),
   CONSTRAINT `user_access_menu_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`),
   CONSTRAINT `user_access_menu_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_access_menu` */
 
-insert  into `user_access_menu`(`id`,`role_id`,`menu_id`) values (1,1,1),(2,1,2),(3,1,3),(4,2,2),(5,2,3),(6,3,3);
+insert  into `user_access_menu`(`id`,`role_id`,`menu_id`) values (23,1,1),(24,1,2),(25,1,3),(26,2,1),(27,2,2),(28,3,1);
 
 /*Table structure for table `user_menu` */
 
@@ -211,7 +211,7 @@ CREATE TABLE `user_menu` (
 
 /*Data for the table `user_menu` */
 
-insert  into `user_menu`(`id`,`menu`) values (1,'Admin'),(2,'Warehouse'),(3,'Todo');
+insert  into `user_menu`(`id`,`menu`) values (1,'Todo'),(2,'Warehouse'),(3,'Admin');
 
 /*Table structure for table `user_role` */
 
@@ -247,7 +247,7 @@ CREATE TABLE `user_sub_menu` (
 
 /*Data for the table `user_sub_menu` */
 
-insert  into `user_sub_menu`(`id`,`menu_id`,`title`,`url`,`icon`,`is_active`,`position`) values (1,1,'Dashboard','admin','icon-home4 mr-2',0,2),(2,2,'Inventory','user/inventory','icon-home4 mr-2',0,3),(3,2,'In Bound','user/purchase','icon-home4 mr-2',0,4),(4,2,'Return','user/return','icon-home4 mr-2',0,5),(5,2,'Sales','user/sales','icon-home4 mr-2',0,6),(6,3,'Home','todo','icon-home4',1,1),(7,3,'Todolist','todo/todolist','icon-clipboard2',1,7),(11,1,'Manage User','admin','icon-user',1,8);
+insert  into `user_sub_menu`(`id`,`menu_id`,`title`,`url`,`icon`,`is_active`,`position`) values (1,3,'Dashboard','admin','icon-home4 mr-2',1,2),(2,2,'Inventory','user/inventory','icon-home4 mr-2',1,3),(3,2,'In Bound','user/purchase','icon-home4 mr-2',1,4),(4,2,'Return','user/return','icon-home4 mr-2',1,5),(5,2,'Sales','user/sales','icon-home4 mr-2',0,6),(6,1,'Home','todo','icon-home4',1,1),(7,1,'Todolist','todo/todolist','icon-clipboard2',1,7),(11,3,'Manage User','admin','icon-user',1,8);
 
 /* Function  structure for function  `get_id_user` */
 
@@ -267,32 +267,6 @@ BEGIN
 	
     END */$$
 DELIMITER ;
-
-/*Table structure for table `get_useragent` */
-
-DROP TABLE IF EXISTS `get_useragent`;
-
-/*!50001 DROP VIEW IF EXISTS `get_useragent` */;
-/*!50001 DROP TABLE IF EXISTS `get_useragent` */;
-
-/*!50001 CREATE TABLE  `get_useragent`(
- `id_todos` int(1) ,
- `user_agent` varchar(20) ,
- `name_agent` varchar(128) 
-)*/;
-
-/*Table structure for table `get_userrecived` */
-
-DROP TABLE IF EXISTS `get_userrecived`;
-
-/*!50001 DROP VIEW IF EXISTS `get_userrecived` */;
-/*!50001 DROP TABLE IF EXISTS `get_userrecived` */;
-
-/*!50001 CREATE TABLE  `get_userrecived`(
- `id_todos` int(1) ,
- `user_recived` varchar(20) ,
- `name_recived` varchar(128) 
-)*/;
 
 /*Table structure for table `v-access` */
 
@@ -327,26 +301,6 @@ DROP TABLE IF EXISTS `v-submenuu`;
  `menu` varchar(128) 
 )*/;
 
-/*Table structure for table `v-todos` */
-
-DROP TABLE IF EXISTS `v-todos`;
-
-/*!50001 DROP VIEW IF EXISTS `v-todos` */;
-/*!50001 DROP TABLE IF EXISTS `v-todos` */;
-
-/*!50001 CREATE TABLE  `v-todos`(
- `id_todos` int(1) ,
- `user_agent` varchar(20) ,
- `date_created` datetime ,
- `user_recived` varchar(20) ,
- `subject_todos` varchar(255) ,
- `Message_todos` text ,
- `status` int(1) ,
- `note` text ,
- `name_agent` varchar(128) ,
- `name_recived` varchar(128) 
-)*/;
-
 /*Table structure for table `v-userr` */
 
 DROP TABLE IF EXISTS `v-userr`;
@@ -366,20 +320,6 @@ DROP TABLE IF EXISTS `v-userr`;
  `role` varchar(128) 
 )*/;
 
-/*View structure for view get_useragent */
-
-/*!50001 DROP TABLE IF EXISTS `get_useragent` */;
-/*!50001 DROP VIEW IF EXISTS `get_useragent` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_useragent` AS select `todos`.`id_todos` AS `id_todos`,`todos`.`user_agent` AS `user_agent`,`user`.`name` AS `name_agent` from (`todos` join `user` on(`todos`.`user_agent` = `user`.`id`)) */;
-
-/*View structure for view get_userrecived */
-
-/*!50001 DROP TABLE IF EXISTS `get_userrecived` */;
-/*!50001 DROP VIEW IF EXISTS `get_userrecived` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_userrecived` AS select `todos`.`id_todos` AS `id_todos`,`todos`.`user_recived` AS `user_recived`,`user`.`name` AS `name_recived` from (`todos` join `user` on(`todos`.`user_recived` = `user`.`id`)) */;
-
 /*View structure for view v-access */
 
 /*!50001 DROP TABLE IF EXISTS `v-access` */;
@@ -393,13 +333,6 @@ DROP TABLE IF EXISTS `v-userr`;
 /*!50001 DROP VIEW IF EXISTS `v-submenuu` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v-submenuu` AS select `user_sub_menu`.`id` AS `id`,`user_sub_menu`.`title` AS `title`,`user_sub_menu`.`url` AS `url`,`user_sub_menu`.`icon` AS `icon`,`user_sub_menu`.`is_active` AS `is_active`,`user_sub_menu`.`position` AS `position`,`user_sub_menu`.`menu_id` AS `menu_id`,`user_menu`.`menu` AS `menu` from (`user_sub_menu` join `user_menu` on(`user_sub_menu`.`menu_id` = `user_menu`.`id`)) */;
-
-/*View structure for view v-todos */
-
-/*!50001 DROP TABLE IF EXISTS `v-todos` */;
-/*!50001 DROP VIEW IF EXISTS `v-todos` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v-todos` AS select `todos`.`id_todos` AS `id_todos`,`todos`.`user_agent` AS `user_agent`,`todos`.`date_created` AS `date_created`,`todos`.`user_recived` AS `user_recived`,`todos`.`subject_todos` AS `subject_todos`,`todos`.`Message_todos` AS `Message_todos`,`todos`.`status` AS `status`,`todos`.`note` AS `note`,`get_useragent`.`name_agent` AS `name_agent`,`get_userrecived`.`name_recived` AS `name_recived` from ((`todos` join `get_useragent` on(`todos`.`id_todos` = `get_useragent`.`id_todos`)) join `get_userrecived` on(`todos`.`id_todos` = `get_userrecived`.`id_todos`)) */;
 
 /*View structure for view v-userr */
 

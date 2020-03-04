@@ -26,11 +26,11 @@ class M_auth extends CI_Model
                     $this->session->set_userdata($data);
                     // cek Hak akses lalu arahkan sesuai aksesnya
                     if ($cek['role_id'] == 1) {
-                        redirect('admin');
+                        redirect('todo');
                     } else if ($cek['role_id'] == 2) {
-                        redirect('warehouse');
+                        redirect('todo');
                     } else if ($cek['role_id'] == 3) {
-                        redirect('cs');
+                        redirect('todo');
                     }
                 } else {
                     // Password salah arahkan ke login lagi    
