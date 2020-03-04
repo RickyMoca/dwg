@@ -57,13 +57,9 @@
 </div>
 
 <div class="col-md-7">
-   
+
     <div class="card-body bg-dark">
         <h3 class="mx-auto my-auto"> Info !</h3>
     </div>
 
 </div>
-
-<!-- Content area -->
-
-<!-- /content area -->

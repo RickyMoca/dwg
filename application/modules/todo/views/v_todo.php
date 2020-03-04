@@ -12,7 +12,7 @@
             <ul class="nav nav-tabs nav-tabs-highlight-dark nav-justified col-md-7">
                 <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">
                         <i class="icon-user mr-1"></i>My Todos
-                        <span class="badge bg-dark badge-pill ml-2">1</span></a>
+                        <span class="badge bg-dark badge-pill ml-2" id="bg-1">1</span></a>
                 </li>
                 <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">
                         <i class="icon-clipboard2 mr-1"></i>Completed
@@ -26,27 +26,20 @@
             <!--/Header Tabs -->
 
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="tab1">
+                <div class="tab-pane fade show active" id="tab1"></div>
 
-                    <div class="card border-left-2 border-left-dark border-right-0 border-top-0 py-1 mb-1 rounded-0 col-md-auto">
-                        <div class="form-check form-check-inline form-check">
-                            <label class="form-check-label"><input type="checkbox" class="form-check-input-styled" data-fouc></label>
-                            <span> #NSHH09343848 Alamat teu legkap tolong di konfrim ulang.... </span>
-                            <span class="badge badge-flat mx-1 bg-warning">Due Date : 20/04/2020</span>
-                        </div>
-                    </div>
+                <div class="tab-pane fade" id="tab2">No</div>
 
-                </div>
-
-                <div class="tab-pane fade" id="tab2">
-                    No
-                </div>
-
-                <div class="tab-pane fade" id="tab3">
-                    Oke
-                </div>
+                <div class="tab-pane fade" id="tab3">Oke</div>
 
             </div>
         </div>
     </div>
 </div>
+<script src="<?= base_url(); ?>assets/js/custom.js"></script>
+<script>
+    $(document).ready(function() {
+        getData();
+        getDataCompleted();
+    });
+</script>
