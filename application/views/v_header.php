@@ -52,7 +52,7 @@
 
 
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/datatables_basic.js"></script>
-    <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/form_checkboxes_radios.js"></script>
+   
     <!-- /theme JS files -->
 
 </head>

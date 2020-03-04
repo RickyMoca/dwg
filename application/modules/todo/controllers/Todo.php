@@ -31,6 +31,14 @@ class Todo extends MY_Controller
 		load_template('v_todo_add', $data);
 	}
 
+
+	// Get data Todolist Uncheck
+	public function getCounttodo()
+	{
+		$getTodos = $this->M_todo->getCountTodo();
+		echo json_encode($getTodos);
+	}
+
 	// Get data Todolist Uncheck
 	public function getList(){ 
 		$getTodos = $this->M_todo->getTodoList();
@@ -61,13 +69,17 @@ class Todo extends MY_Controller
 		if ($result[0]['status'] == '1') {
 			// $this->db->update('todos', array('status' => '0'), 'id_todos='+$id_todos);
 				$this->db->query("update todos set status='0' where id_todos=$id_todos");
+				$mesaage = 'Completed';
+				success_message($mesaage);
 		} else {
 			// $this->db->update('todos', array('status' => '1'), 'id_todos='+$id_todos);
 				$this->db->query("update todos set status='1' where id_todos=$id_todos");
+				$mesaage = 'Un Completed';
+				success_message($mesaage);
 		}
-	
 
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
+		$mesaage = 'Sorry';
+		danger_message($mesaage);
 	}
 
 }
