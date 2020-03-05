@@ -15,7 +15,7 @@
                  <li class="nav-item dropdown dropdown-user mr-4">
                      <a href="#" class="navbar-nav-link" data-toggle="dropdown">
                          <img src="<?= base_url(); ?>assets/vendor/images/placeholders/pic.png" class="rounded-circle" alt="">
-                         <span><?= $this->session->userdata('name');?></span>
+                         <span><?= $this->session->userdata('name'); ?></span>
                      </a>
 
                      <div class="dropdown-menu dropdown-menu-right" id="oke">
@@ -103,5 +103,4 @@
          </div>
          <!-- /page header -->
      </div>
-     <?= $this->session->flashdata('message'); ?>
      <!-- /secondary navbar -->

@@ -83,6 +83,46 @@
                 ];
             }
 
+            function addtodo_rules()
+
+            {
+                return [
+                    [
+                        'field' => 'subject',
+                        'label' => 'subject',
+                        'rules'  => 'trim|required',
+                        'errors' => array(
+                            'required' => '%s tidak boleh kosong'
+                        )
+                    ],
+                    [
+                        'field' => 'message',
+                        'label' => 'message',
+                        'rules'  => 'trim|required',
+                        'errors' => array(
+                            'required' => '%s tidak boleh kosong'
+                        )
+                    ],
+                    [
+                        'field' => 'duedate',
+                        'label' => 'duedate',
+                        'rules'  => 'trim|required',
+                        'errors' => array(
+                            'required' => '%s tidak boleh kosong'
+                        )
+                    ],
+                    [
+                        'field' => 'user_recived',
+                        'label' => 'user_recived',
+                        'rules'  => 'trim|required',
+                        'errors' => array(
+                            'required' => '%s tidak boleh kosong'
+                        )
+                    ],
+
+                ];
+            }
+
 
             function log_rules()
             {
@@ -119,11 +159,9 @@
 
                 $ci->session->set_flashdata(
                     'message',
-                    '
-                    <div class="alert bg-danger text-white alert-styled-left alert-arrow-left alert-dismissible mx-auto">
+                    '<div class="alert alert-danger border-0 alert-dismissible mx-auto my-1">
                     <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
                     <span class="font-weight-semibold">' . $mesaage . '</div>'
-
                 );
             }
 
@@ -134,10 +172,10 @@
 
                 $ci->session->set_flashdata(
                     'message',
-                    '
-                <div class="alert bg-success text-white alert-styled-left alert-arrow-left alert-dismissible mx-auto">
-                <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
-                <span class="font-weight-semibold">' . $mesaage . '</div>'
+
+                    '<div class="alert alert-success border-0 alert-dismissible mx-auto my-1 ">
+                    <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                    <span class="font-weight-semibold">' . $mesaage . '</div>'
 
                 );
             }

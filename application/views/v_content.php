@@ -6,10 +6,9 @@
 
         <!-- Content area -->
         <div class="content mt-3">
+            <div class="col-md-10 mx-auto text-center"> <?= $this->session->flashdata('message'); ?></div>
             <div class="row mx-auto">
-                
-                    <?= $load_content; ?>
-                
+                <?= $load_content; ?>
             </div>
         </div>
         <!-- /content area -->

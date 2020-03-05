@@ -45,14 +45,15 @@
     <!-- /theme JS files -->
 
     <!-- Theme JS files -->
+    <script src="<?= base_url(); ?>assets/vendor/js/plugins/pickers/daterangepicker.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/tables/datatables/datatables.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/selects/select2.min.js"></script>
 
     <script src="<?= base_url(); ?>assets/js/app.js"></script>
 
-
+    <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/picker_date.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/datatables_basic.js"></script>
-   
+
     <!-- /theme JS files -->
 
 </head>

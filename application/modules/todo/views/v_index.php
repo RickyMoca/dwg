@@ -16,7 +16,7 @@
             <?php $name = $this->session->userdata('name');
             $date = $this->session->userdata('date_created') ?>
             <h6 class="font-weight-semibold mb-0"><?= $name ?></h6>
-            <span class="d-block opacity-75">Member since <?=date('d F Y', $date); ?></span>
+            <span class="d-block opacity-75">Member since <?= date('d F Y', $date); ?></span>
 
             <div class="list-icons list-icons-extended mt-3">
                 <a href="#" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Google Drive"><i class="icon-google-drive"></i></a>
@@ -58,8 +58,9 @@
 
 <div class="col-md-7">
 
-    <div class="card-body bg-dark">
-        <h3 class="mx-auto my-auto"> Info !</h3>
+    <div class="card-body bg-light text-center">
+        <h3> Welcome to App <strong>Digital Winning</strong></h3>
+        <h2><?= $name ?></h2>
     </div>
 
 </div>
