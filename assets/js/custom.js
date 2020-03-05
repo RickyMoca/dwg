@@ -40,7 +40,7 @@ function getData() {
                 baris +=
                     divStart +
                     `<label class="form-check-label"><input type="checkbox" class="todo" data-oke="` + data[i].id_todos + `"  data-fouc></label>
-                        <span>` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="mi-event-available ml-1"></i> ` + data[i].due_date + `</span>`
+                       <a href="detail?id=`+data[i].id_todos +`"><span>` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="mi-event-available ml-1"></i> ` + data[i].due_date + `</span></a> `
                     + divEnd
             }
             baris += '<strong><a href="" class="text-dark"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';

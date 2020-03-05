@@ -17,6 +17,17 @@ class M_todo extends CI_Model
         $id = $this->session->userdata('id');
         return $this->db->get_where('todos', array('user_recived' => $id, 'status' => '1'), 5)->result();
     }
+
+    public function detailTodo()
+    {
+        // get detail todo where id
+        $id_todos = $this->input->get('id');
+        $this->db->where('id_todos',$id_todos);
+       return $this->db->get('todos')->row_array();
+       
+
+    }
+
     public function getCountTodo()
     {
         $id = $this->session->userdata('id');

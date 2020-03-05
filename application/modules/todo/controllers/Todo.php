@@ -28,6 +28,16 @@ class Todo extends MY_Controller
 		$data['Vuser'] = $this->M_todo->view_user();
 		load_template('v_todo', $data);
 	}
+
+
+	public function detail()
+	{
+		$data['title'] = "Todolist";
+		$data['page_name'] = "My Todolist";
+		$data['detail'] = $this->M_todo->detailTodo();
+		load_template('v_todo_detail', $data);
+	}
+
 	// For add data todo
 	public function addtodo()
 	{
@@ -73,7 +83,6 @@ class Todo extends MY_Controller
 		$id_todos = $this->input->post('ids');
 		// $id_todos = '1';
 
-
 		$this->db->where('id_todos', $id_todos);
 		$result = $this->db->get('todos')->result_array();
 
@@ -83,13 +92,39 @@ class Todo extends MY_Controller
 		if ($result[0]['status'] == '1') {
 			// $this->db->update('todos', array('status' => '0'), 'id_todos='+$id_todos);
 			$this->db->query("update todos set status='0' where id_todos=$id_todos");
-			$mesaage = 'Completed';
-			success_message($mesaage);
+		
 		} else {
 			// $this->db->update('todos', array('status' => '1'), 'id_todos='+$id_todos);
 			$this->db->query("update todos set status='1' where id_todos=$id_todos");
-			$mesaage = 'Un Completed';
+		
+		}
+
+		$mesaage = 'Sorry';
+		danger_message($mesaage);
+	}
+
+
+	public function gantiStats()
+	{
+		$id_todos = $this->input->get('ids');
+		
+
+		$this->db->where('id_todos', $id_todos);
+		$result = $this->db->get('todos')->result_array();
+
+		if ($result[0]['status'] == '1') {
+			
+			$this->db->query("update todos set status='0' where id_todos=$id_todos");
+			$mesaage = '<i class="icon-cross3 mr-1 icon-2x"></i> UnCompleted';
 			success_message($mesaage);
+			redirect('todo/detail?id=' . $id_todos);
+		} else {
+			
+			$this->db->query("update todos set status='1' where id_todos=$id_todos");
+			$mesaage = '<i class="icon-checkmark4 mr-1 icon-2x"></i> Completed';
+			success_message($mesaage);
+			redirect('todo/detail?id='.$id_todos);
+		
 		}
 
 		$mesaage = 'Sorry';
