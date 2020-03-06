@@ -23,6 +23,7 @@ class Todo extends MY_Controller
 	//Default Landing Begin controller todolist page 
 	public function todolist()
 	{
+		
 		$data['title'] = "Todolist";
 		$data['page_name'] = "My Todolist";
 		$data['Vuser'] = $this->M_todo->view_user();

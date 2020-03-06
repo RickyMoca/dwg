@@ -50,4 +50,3 @@
         </div>
     </div>
 </div>
-<!-- <i class="icon-checkbox-checked2 icon-2x mr-2"> -->

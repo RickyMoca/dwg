@@ -42,16 +42,17 @@ class M_todo extends CI_Model
     }
 
     public function addTodo()
-    {
+    { 
+        
 
         $data = array(
             'user_agent' => $this->session->userdata('id'),
             'user_recived' => $this->input->post('user_recived'),
-            'date_created' => $this->input->post('duedate'),
+            'date_created' => tgl_now(),
             'subject_todos' => $this->input->post('subject'),
             'message_todos' => $this->input->post('message'),
             'status' => '0',
-            'due_date' => $this->input->post('duedate')
+            'due_date' => $this->input->post('duedate').wkt_now()
         );
 
         $this->db->insert('todos', $data);

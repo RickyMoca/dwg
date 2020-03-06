@@ -62,7 +62,10 @@ var DateTimePickers = function() {
 
         // Single picker
         $('.daterange-single').daterangepicker({ 
-            singleDatePicker: true
+            singleDatePicker: true,
+            locale: {
+                format: 'DD/MMM/YY'
+            }
         });
 
         // Display date dropdowns

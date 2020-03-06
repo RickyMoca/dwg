@@ -207,19 +207,45 @@
                     }
                 }
             }
-
+            
             //=====>> End Authentikasi user blocked [4] <<=====//
 
-            // function check_access($role_id, $menu_id)
-            // {
-            //     $ci = get_instance();
 
-            //     $ci->db->where('role_id', $role_id);
-            //     $ci->db->where('menu_id', $menu_id);
-            //     $result = $ci->db->get('user_access_menu');
+             //=====>> date and time format [5] <<=====//
+           
+             function dateTime($tgl){
+                
+                $hasil = strtotime($tgl);
+                return date('d-m-Y H:i:s', $hasil);
+                // use Example : dateTime('2020-03-07 21:58:19')
+             }
 
-            //     if ($result->num_rows() > 0) {
-            //         return "checked='checked'";
-            //     }
-            // }
+            function wkt_now(){
+
+                date_default_timezone_set('Asia/Jakarta');
+                return ' '.date('H:i:s', time());
+            }
+
+            function tgl_now(){
+
+                date_default_timezone_set('Asia/Jakarta');
+                return date('Y-m-d H:i:s');
+            }
+            //=====>> date and time format [5] <<=====//
+
+
+
         }
+        
+        // function check_access($role_id, $menu_id)
+        // {
+        //     $ci = get_instance();
+
+        //     $ci->db->where('role_id', $role_id);
+        //     $ci->db->where('menu_id', $menu_id);
+        //     $result = $ci->db->get('user_access_menu');
+
+        //     if ($result->num_rows() > 0) {
+        //         return "checked='checked'";
+        //     }
+        // }
