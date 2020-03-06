@@ -123,11 +123,11 @@ CREATE TABLE `todos` (
   `note` text DEFAULT NULL,
   `due_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id_todos`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `todos` */
 
-insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`message_todos`,`status`,`note`,`due_date`) values (1,'DWG02203','2020-02-21 20:58:56','DWG02201','#2323232352','Pesanan dibatalkan',0,'Urgent euyyy','2020-03-04 21:58:15'),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,'oke','2020-03-04 21:58:19'),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',1,NULL,'2020-03-06 21:58:39'),(4,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(5,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(6,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(7,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19');
+insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`message_todos`,`status`,`note`,`due_date`) values (1,'DWG02203','2020-02-21 20:58:56','DWG02201','#2323232352','Pesanan dibatalkan',0,'Urgent euyyy','2020-03-04 21:58:15'),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,NULL,'2020-03-06 21:58:39'),(4,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(5,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(6,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(7,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(32,'DWG02201','0000-00-00 00:00:00','DWG02201','Moca','sadasdsad',0,NULL,'0000-00-00 00:00:00'),(33,'DWG02201','2020-03-06 00:00:00','DWG03204','SDAD','SDSDS',0,NULL,'2020-03-06 00:00:00'),(34,'DWG02201','2020-03-28 00:00:00','DWG02201','dsdsd','BROW',0,NULL,'2020-03-28 00:00:00'),(35,'DWG02201','2020-03-06 20:34:00','DWG02201','aaaa','sippp',0,NULL,'2020-03-26 20:34:00'),(36,'DWG02201','2020-03-06 21:17:24','DWG02201','#NJV029837292','INI KONFIRMASI SEGERA YAH',0,NULL,'2020-03-18 21:17:24');
 
 /*Table structure for table `todos_category` */
 
@@ -301,6 +301,27 @@ DROP TABLE IF EXISTS `v-submenuu`;
  `menu` varchar(128) 
 )*/;
 
+/*Table structure for table `v-todos` */
+
+DROP TABLE IF EXISTS `v-todos`;
+
+/*!50001 DROP VIEW IF EXISTS `v-todos` */;
+/*!50001 DROP TABLE IF EXISTS `v-todos` */;
+
+/*!50001 CREATE TABLE  `v-todos`(
+ `id_todos` int(1) ,
+ `user_agent` varchar(20) ,
+ `date_created` datetime ,
+ `user_recived` varchar(20) ,
+ `subject_todos` varchar(255) ,
+ `message_todos` text ,
+ `status` int(1) ,
+ `note` text ,
+ `due_date` datetime ,
+ `reply_todos` text ,
+ `date_reply` datetime 
+)*/;
+
 /*Table structure for table `v-userr` */
 
 DROP TABLE IF EXISTS `v-userr`;
@@ -333,6 +354,13 @@ DROP TABLE IF EXISTS `v-userr`;
 /*!50001 DROP VIEW IF EXISTS `v-submenuu` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v-submenuu` AS select `user_sub_menu`.`id` AS `id`,`user_sub_menu`.`title` AS `title`,`user_sub_menu`.`url` AS `url`,`user_sub_menu`.`icon` AS `icon`,`user_sub_menu`.`is_active` AS `is_active`,`user_sub_menu`.`position` AS `position`,`user_sub_menu`.`menu_id` AS `menu_id`,`user_menu`.`menu` AS `menu` from (`user_sub_menu` join `user_menu` on(`user_sub_menu`.`menu_id` = `user_menu`.`id`)) */;
+
+/*View structure for view v-todos */
+
+/*!50001 DROP TABLE IF EXISTS `v-todos` */;
+/*!50001 DROP VIEW IF EXISTS `v-todos` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v-todos` AS select `todos`.`id_todos` AS `id_todos`,`todos`.`user_agent` AS `user_agent`,`todos`.`date_created` AS `date_created`,`todos`.`user_recived` AS `user_recived`,`todos`.`subject_todos` AS `subject_todos`,`todos`.`message_todos` AS `message_todos`,`todos`.`status` AS `status`,`todos`.`note` AS `note`,`todos`.`due_date` AS `due_date`,`todos_reply`.`reply_todos` AS `reply_todos`,`todos_reply`.`date_reply` AS `date_reply` from (`todos` join `todos_reply` on(`todos`.`id_todos` = `todos_reply`.`id_todos`)) */;
 
 /*View structure for view v-userr */
 
