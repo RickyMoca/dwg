@@ -80,7 +80,7 @@ function getDataCompleted() {
                 html +=
                     divStart + `
                 <label class="form-check-label"><input type="checkbox" class="completed" checked data-oke="`+ data[i].id_todos + `"  data-fouc></label>
-                <span class="text-success"><del>` + data[i].subject_todos + ` ` + data[i].message_todos + `</del><i class="mi-swap-horiz ml-1"></i><i class="mi-check-box ml-1"></i> <strong>Completed</strong></span>
+                 <a href="detail?id=`+ data[i].id_todos +`"><span class="text-success"><del>` + data[i].subject_todos + ` ` + data[i].message_todos + `</del><i class="mi-swap-horiz ml-1"></i><i class="mi-check-box ml-1"></i> <strong>Completed</strong></span></a>
                 `+ divEnd
             }
             html += '<strong><a href="#" class="text-success"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
