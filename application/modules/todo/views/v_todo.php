@@ -106,7 +106,6 @@
     </div>
 </div>
 <!-- End Primary modal -->
-<button type="button" class="btn btn-light" id="noty_top_center">Launch <i class="icon-play3 ml-2"></i></button>
 
 
 <script src="<?= base_url(); ?>assets/js/custom.js"></script>

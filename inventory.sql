@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v11.11 (32 bit)
+SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.11-MariaDB : Database - inventory
 *********************************************************************
 */
@@ -123,11 +123,11 @@ CREATE TABLE `todos` (
   `note` text DEFAULT NULL,
   `due_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id_todos`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `todos` */
 
-insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`message_todos`,`status`,`note`,`due_date`) values (1,'DWG02203','2020-02-21 20:58:56','DWG02201','#2323232352','Pesanan dibatalkan',0,'Urgent euyyy','2020-03-04 21:58:15'),(2,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(3,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,NULL,'2020-03-06 21:58:39'),(4,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(5,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(6,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(7,'DWG02203','2020-02-24 01:20:42','DWG02201','#2323232352','Tolong konfrim ya ini lamat ga lengkap biar segera diproses dan mantap pokonya mah',0,'oke','2020-03-04 21:58:19'),(32,'DWG02201','0000-00-00 00:00:00','DWG02201','Moca','sadasdsad',0,NULL,'0000-00-00 00:00:00'),(33,'DWG02201','2020-03-06 00:00:00','DWG03204','SDAD','SDSDS',0,NULL,'2020-03-06 00:00:00'),(34,'DWG02201','2020-03-28 00:00:00','DWG02201','dsdsd','BROW',0,NULL,'2020-03-28 00:00:00'),(35,'DWG02201','2020-03-06 20:34:00','DWG02201','aaaa','sippp',0,NULL,'2020-03-26 20:34:00'),(36,'DWG02201','2020-03-06 21:17:24','DWG02201','#NJV029837292','INI KONFIRMASI SEGERA YAH',0,NULL,'2020-03-18 21:17:24');
+insert  into `todos`(`id_todos`,`user_agent`,`date_created`,`user_recived`,`subject_todos`,`message_todos`,`status`,`note`,`due_date`) values (37,'DWG02201','2020-03-07 17:09:20','DWG02201','#12324543546  No response','No response',0,NULL,'2020-03-06 17:09:20'),(38,'DWG02201','2020-03-07 17:20:56','DWG02201','#12324543546 New','New tgl 20 due datenya',0,NULL,'2020-03-20 17:20:56');
 
 /*Table structure for table `todos_category` */
 
