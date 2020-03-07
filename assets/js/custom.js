@@ -12,23 +12,68 @@
  * ---------------------------------------------------------------------------- */
 
 
-
 var base_url = 'http://localhost/dwg/todo/';
 
 var divStart = ` <div class="card border-left-2 border-left-dark border-right-0 border-top-0 py-1 mb-1 rounded-0 col-md-auto"><div class="form-check form-check-inline form-check">`
 var divEnd = `</div></div>`
 
-
-function refreshData() {
+/* ------------------------------------------------------------------------------
+ *  # First run document ready
+ * ---------------------------------------------------------------------------- */
+$(document).ready(function () {
     getData();
-    getDataCompleted();
-    getDataNoresponse();
+    // Date picker format
+    $('.daterange-single').daterangepicker({
+        singleDatePicker: true,
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
+    });
+
+    // Keep last active tab
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+
+    var activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#tbs a[href="' + activeTab + '"]').tab('show');
+    }
+});
+
+
+
+
+/* ------------------------------------------------------------------------------
+ *  # Fungction Event
+ * ---------------------------------------------------------------------------- */
+
+function changestatus() {
+    $('input').on('click', function () {
+        const myid = $(this).data('oke');
+        $.ajax({
+            url: base_url + 'changestatus',
+            type: 'post',
+            data: {
+                ids: myid,
+            },
+            success: function () {
+               
+            }
+        });
+    });
 }
+
+
+
+
+
 
 
 /* ------------------------------------------------------------------------------
  *  # Get todolist My Todos
  * ---------------------------------------------------------------------------- */
+
 function getData() {
     $.ajax({
         url: base_url + 'getList',
@@ -46,25 +91,18 @@ function getData() {
             baris += '<strong><a href="" class="text-dark"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
 
             $('#tab1').html(baris);
-            changestatus();
-            $('#bg-1').html(data.length);
             $('.td1').uniform();
+            $('#bg-1').html(data.length);
         }
     })
-}
 
 
-
-/* ------------------------------------------------------------------------------
- *  # Get todolist Completed
- * ---------------------------------------------------------------------------- */
-function getDataCompleted() {
-    var html = '';
     $.ajax({
         url: base_url + 'getDone',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
+            var html = '';
             for (i = 0; i < data.length; i++) {
                 html +=
                     divStart + `
@@ -74,25 +112,19 @@ function getDataCompleted() {
             }
             html += '<strong><a href="#" class="text-success"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
             $('#tab2').html(html);
-            changestatus();
-            $('#bg-2').html(data.length);
             $('.td2').uniform({
                 wrapperClass: 'border-success-600 text-success-800'
             });
+            $('#bg-2').html(data.length);
         }
     })
-}
 
-/* ------------------------------------------------------------------------------
- *  # Get todolist Noresponse
- * ---------------------------------------------------------------------------- */
-function getDataNoresponse() {
-    var nores = '';
     $.ajax({
         url: base_url + 'getNoResponse',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
+            var nores = '';
             for (i = 0; i < data.length; i++) {
                 nores +=
                     divStart + `
@@ -103,35 +135,17 @@ function getDataNoresponse() {
             nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
 
             $('#tab3').html(nores);
-            changestatus();
-            $('#bg-3').html(data.length);
             $('.td3').uniform({
                 wrapperClass: 'border-danger-600 text-danger-800'
             });
+            $('#bg-3').html(data.length);
 
         }
     })
-}
-// End ---------------------------------------------------------------------------------------------------------------------
 
-/* ------------------------------------------------------------------------------
- *  # Fungction Event
- * ---------------------------------------------------------------------------- */
-function changestatus() {
-    $('.change').on('click', function () {
-        const myid = $(this).data('oke');
-        $.ajax({
-            url: base_url + 'changestatus',
-            type: 'post',
-            data: {
-                ids: myid,
-            },
-            success: function () {
-                refreshData();
-            }
-        });
-    });
+
 }
-/* ------------------------------------------------------------------------------
- *  # Get todolist Completed
- * ---------------------------------------------------------------------------- */
+
+
+
+

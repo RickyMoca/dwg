@@ -4,8 +4,10 @@
             <h3 class="card-title">
                 <a href="<?= base_url('todo/todolist') ?>" class="text-light">
                     <i class="icon-arrow-left16 icon-2x mr-2"></i></a>
-                Detail Todo
+                Back to my todos
             </h3>
+
+            <button class="btn sm-light" id="pilih"><i class="icon-paste2 icon-1x"></i> Copy</button>
         </div>
         <div id="message"></div>
         <div class="card-body bg-light">
@@ -30,16 +32,16 @@
             <hr>
 
             <div class="col-md-12 border-bottom-2 bg-primary border-warning py-2">
-                <h5><i class="icon-bubble-dots3 mr-2"></i> <?= $detail['message_todos']; ?></h5>
+                <h5 id="message"><i class="icon-bubble-dots3 mr-2"></i> <?= $detail['message_todos']; ?></h5>
             </div>
             <div class="col-md-12 border-bottom-2 bg-light border-dark py-2">
-                <h5><i class="mi-reply mr-2"></i> Kirim ulang saja konsumen nungguin euy</h5>
+                <h5><i class="mi-reply mr-2"></i></h5>
             </div>
 
             <div class="row mt-3">
                 <div class="col-md-12">
                     <div class="form-group form-group-feedback form-group-feedback-right">
-                        <input type="text" class="form-control bg-light form-control-md" placeholder="Reply here . . . . . ">
+                        <input type="text" class="form-control bg-light form-control-md border-bottom-1" placeholder="Reply here . . . . . ">
                         <div class="form-control-feedback form-control-feedback-md">
                             <a href=""><i class="mi-reply mi-2x text-dark"></i></a>
                         </div>
@@ -50,3 +52,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('#pilih').on('click', function() {
+        var copyText = document.getElementById("message");
+        copyText.select();
+        document.execCommand("message");
+
+        $.jGrowl('Data Successfuly Copy to Clipboard', {
+            theme: 'alert-styled-left bg-dark'
+        });
+
+
+
+    })
+</script>

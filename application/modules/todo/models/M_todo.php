@@ -32,18 +32,6 @@ class M_todo extends CI_Model
         return $this->db->get('todos')->row_array();
     }
 
-    // public function getCountTodo()
-    // {
-    //     $id = $this->session->userdata('id');
-    //     $query = "SELECT COUNT(`status`) AS `status`  FROM todos WHERE `status` ='1'  UNION  SELECT COUNT(`status`) AS `completed`  FROM todos WHERE `status` ='0'  UNION  SELECT COUNT(`status`) AS `completed`  FROM todos WHERE `due_date` > NOW()";
-    //     return $this->db->query($query)->result();
-    //     // $id = $this->session->userdata('id');
-    //     // $data['mytodos'] = $this->db->get_where('todos', array('user_recived' => $id, 'status' => '0', 'due_date >' => tgl_now()))->num_rows();
-    //     // $data['completed'] = $this->db->get_where('todos', array('user_recived' => $id, 'status' => '1', 'due_date >' => tgl_now()))->num_rows();
-    //     // $data['due_date'] = $this->db->get_where('todos', array('user_recived' => $id, 'due_date <' => tgl_now()))->num_rows();
-    //     // return $data->result_array();
-    // }
-
     public function view_user()
     {
         // Select * from v-todos where status='1'
@@ -65,7 +53,7 @@ class M_todo extends CI_Model
         );
 
         $this->db->insert('todos', $data);
-        $mesaage = 'Todos has ben created';
+        $mesaage = 'Todos has ben added';
         success_message($mesaage);
     }
 }

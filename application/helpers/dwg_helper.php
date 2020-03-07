@@ -153,32 +153,34 @@
 
             //=====>> Message Alert template [3] <<=====//
 
-            function danger_message($mesaage)
-            {
-                $ci = get_instance();
-
-                $ci->session->set_flashdata(
-                    'message',
-                    '<div class="alert alert-danger border-0 alert-dismissible mx-auto my-1">
-                    <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
-                    <span class="font-weight-semibold">' . $mesaage . '</div>'
-                );
+            function destroy_flashdata(){
+                danger_message('');
+                success_message('');
+                info_message('');
             }
 
-
-            function success_message($mesaage)
-            {
+            function danger_message($mesaage){
                 $ci = get_instance();
-
-                $ci->session->set_flashdata(
-                    'message',
-
-                    '<div class="alert alert-success border-0 alert-dismissible mx-auto my-1 ">
-                    <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
-                    <span class="font-weight-semibold">' . $mesaage . '</div>'
-
-                );
+                $ci->session->set_flashdata('message',$mesaage);
+                $ci->session->set_flashdata('type', 'danger');
+                
             }
+
+            function success_message($mesaage){
+                $ci = get_instance();
+                $ci->session->set_flashdata('message', $mesaage);
+                $ci->session->set_flashdata('type', 'success');
+                
+            }
+
+            function info_message($mesaage){
+                $ci = get_instance();
+                $ci->session->set_flashdata('message', $mesaage);
+                $ci->session->set_flashdata('type', 'info');
+            }
+            // '<div class="alert alert-success border-0 alert-dismissible mx-auto my-1 ">
+            // <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+            // <span class="font-weight-semibold">' . $mesaage . '</div>'
 
             //=====>> End Message Alert template [3] <<=====//
 

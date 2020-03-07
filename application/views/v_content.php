@@ -17,17 +17,32 @@
 
     </div>
     <!-- /main content -->
-
 </div>
-<?= $this->session->flashdata('message');  ?>;
 
 <!-- /page content -->
 <script>
     $(document).ready(function() {
-        new Noty({
-            layout: 'topRight',
-            text: 'You have been logout',
-            type: 'alert'
-        }).show();
+        // Right (default)
+        var types = "<?= $this->session->flashdata('type'); ?>"
+        var message = "<?= $this->session->flashdata('message'); ?>"
+
+        if (message != "") {
+            if (types == 'success') {
+                $.jGrowl(message, {
+                    header: 'Congratulation',
+                    theme: 'alert-styled-left bg-success'
+                });
+            } else if (types == 'danger') {
+                $.jGrowl(message, {
+                    header: 'Upps Sorry !',
+                    theme: 'alert-styled-left bg-danger'
+                });
+            } else {
+                $.jGrowl(message, {
+                    header: 'INFO!',
+                    theme: 'alert-styled-left bg-info'
+                });
+            }
+        }
     });
 </script>

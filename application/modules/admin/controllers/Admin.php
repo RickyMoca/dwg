@@ -22,6 +22,7 @@ class Admin extends MY_Controller
 			'getuser' => $this->M_admin->get_user()
 		];
 		load_template('v_user', $data);
+		destroy_flashdata();
 	}
 
 	public function deletuser()
@@ -41,17 +42,10 @@ class Admin extends MY_Controller
 		$this->form_validation->set_rules(reg_rules());
 
 		if ($this->form_validation->run() == false) {
-
-			$data = [
-				'title' => 'Admin',
-				'page_name' => 'Dashboard',
-				'id' => $this->M_admin->get_autonumber(),
-				'getrole' => $this->M_admin->get_role(),
-				'getuser' => $this->M_admin->get_user()
-			];
-			$mesaage = 'Data can\'t not saved, <a href="#" data-toggle="modal" data-target="#modal_theme_primary">Try again.</a>';
+			$mesaage = 'Data can\'t not saved,Try again.';
 			danger_message($mesaage);
-			load_template('v_user', $data);
+			$this->index(); // untuk memanggil fungction yang ada dlm satu controller
+			
 		} else {
 			$email = $this->input->post('email', true);
 

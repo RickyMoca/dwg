@@ -10,7 +10,7 @@
         <div class="card-body bg-light">
 
             <!-- Header Tabs -->
-            <ul class="nav nav-tabs nav-tabs-highlight-dark nav-justified col-md-7">
+            <ul class="nav nav-tabs nav-tabs-highlight-dark nav-justified col-md-7" id="tbs">
                 <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">
                         <i class="icon-user mr-1"></i>My Todos
                         <span class="badge bg-dark badge-pill ml-2" id="bg-1"></span></a>
@@ -58,9 +58,13 @@
                 <form class="user" method="post" action="<?= base_url('todo/addtodo'); ?>">
                     <div class="form-group">
                         <small class="mb-1 badge badge-light">Subject Your Todos</small>
-                        <input type="text" class="form-control" id="subject" name="subject" value="<?= set_value('name'); ?>">
+                        <input type="text" class="form-control" id="subject" name="subject" value="<?= set_value('subject'); ?>">
                     </div>
-
+                    <!-- form validation -->
+                    <?php if (form_error('subject')) : ?>
+                        <small class="text-danger"><?= form_error('subject') ?></small>
+                    <?php else : ?> <?php endif; ?>
+                    <!-- end Form validation -->
                     <div class="form-row mb-4">
                         <div class="col-6">
                             <small class="mb-1 badge badge-light">Select yout todo assign to ?</small>
@@ -91,15 +95,18 @@
                         <small class="mb-1 badge badge-light">Please enter your message todo</small>
 
                         <textarea type="text-area" class="form-control" id="message" name="message" placeholder="Enter name" value=""> </textarea>
-                        <?= form_error('name', '<small class="text-danger pl-1">', '</small>'); ?>
+                        <!-- form validation -->
+                        <?php if (form_error('message')) : ?>
+                            <small class="text-danger"><?= form_error('message') ?></small>
+                        <?php else : ?> <?php endif; ?>
+                        <!-- end Form validation -->
                     </div>
-
 
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn bg-primary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn bg-slate-600">Save changes</button>
+                <button type="submit" id="BtnaddTodo" class="btn bg-slate-600">Save changes</button>
             </div>
             </form>
         </div>
@@ -109,15 +116,10 @@
 
 
 <script src="<?= base_url(); ?>assets/js/custom.js"></script>
-<script>
-    $(document).ready(function() {
 
-        refreshData();
-        $('.daterange-single').daterangepicker({
-            singleDatePicker: true,
-            locale: {
-                format: 'YYYY-MM-DD'
-            }
-        });
-    });
+<script>
+    // $('div').on('click', function() {
+
+    //     $("#m_addtodo").modal('show');
+    // });
 </script>
