@@ -14,7 +14,6 @@
                 <i class="icon-lock icon-2x text-slate-300 border-slate-200 border-3 rounded-round p-2 mb-2 mt-1"></i>
                 <!-- <h5 class="mb-0">Login to your account</h5> -->
                 <span class="d-block text-muted">Enter your credentials below</span>
-                <small><?= $this->session->flashdata('message'); ?></small>
               </div>
 
               <!-- Login form -->
@@ -31,3 +30,30 @@
     <!-- /main content -->
   </div>
   <!-- /page content -->
+  
+  <script>
+    $(document).ready(function() {
+      // Right (default)
+      var types = "<?= $this->session->flashdata('type'); ?>"
+      var message = "<?= $this->session->flashdata('message'); ?>"
+
+      if (message != "") {
+        if (types == 'success') {
+          $.jGrowl(message, {
+            header: 'Congratulation',
+            theme: 'alert-styled-left bg-success'
+          });
+        } else if (types == 'danger') {
+          $.jGrowl(message, {
+            header: 'Upps Sorry !',
+            theme: 'alert-styled-left bg-danger'
+          });
+        } else {
+          $.jGrowl(message, {
+            header: 'INFO!',
+            theme: 'alert-styled-left bg-info'
+          });
+        }
+      }
+    });
+  </script>

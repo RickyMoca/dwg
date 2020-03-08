@@ -49,8 +49,11 @@
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/pickers/daterangepicker.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/tables/datatables/datatables.min.js"></script>
     <script src="<?= base_url(); ?>assets/vendor/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/plugins/clipboard/clipboard.min.js"></script>
+
 
     <script src="<?= base_url(); ?>assets/js/app.js"></script>
+
     <script src="<?= base_url(); ?>assets/vendor/js/demo_pages/datatables_basic.js"></script>
 
 

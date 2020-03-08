@@ -48,11 +48,20 @@ class Todo extends MY_Controller
 		if ($this->form_validation->run() == false) {
 			$mesaage = 'Someting Wrong Please Try Again.';
 			danger_message($mesaage);
-			redirect('todo/todolist');
+			$this->session->set_flashdata('modal', 'eror');
+			$this->todolist();
 		} else {
 			$this->M_todo->addTodo();
 			redirect('todo/todolist');
 		}
+	}
+
+	// For Reply Todoooo
+	public function replyTodo()
+	{
+		$id = $this->input->post('id_todos');
+		$reply = $this->input->post('message');
+		$this->M_todo->replyTodos($id, $reply);	
 	}
 
 

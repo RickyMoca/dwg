@@ -59,16 +59,15 @@
                     <div class="form-group">
                         <small class="mb-1 badge badge-light">Subject Your Todos</small>
                         <input type="text" class="form-control" id="subject" name="subject" value="<?= set_value('subject'); ?>">
+                        <!-- form validation -->
+                        <?php if (form_error('subject')) : ?>
+                            <small class="text-danger"><?= form_error('subject') ?></small>
+                        <?php else : ?> <?php endif; ?>
+                        <!-- end Form validation -->
                     </div>
-                    <!-- form validation -->
-                    <?php if (form_error('subject')) : ?>
-                        <small class="text-danger"><?= form_error('subject') ?></small>
-                    <?php else : ?> <?php endif; ?>
-                    <!-- end Form validation -->
                     <div class="form-row mb-4">
                         <div class="col-6">
                             <small class="mb-1 badge badge-light">Select yout todo assign to ?</small>
-
 
                             <select id="id_user" name="user_recived" class="form-control">
                                 <option selected="true"></option>
@@ -76,6 +75,11 @@
                                     <option value="<?= $u['id']; ?>"><?= $u['name']; ?></option>
                                 <?php endforeach; ?>
                             </select>
+                            <!-- form validation -->
+                            <?php if (form_error('user_recived')) : ?>
+                                <small class="text-danger"><?= form_error('user_recived') ?></small>
+                            <?php else : ?> <?php endif; ?>
+                            <!-- end Form validation -->
                         </div>
 
                         <div class="col-6">
@@ -85,7 +89,7 @@
                                 <span class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-calendar22"></i></span>
                                 </span>
-                                <input type="text" name="duedate" class="form-control daterange-single" value="">
+                                <input type="text" name="duedate" class="form-control daterange-single" value="<?= set_value('duedate'); ?>">
                             </div>
 
                         </div>
@@ -94,10 +98,10 @@
                     <div class="form-group">
                         <small class="mb-1 badge badge-light">Please enter your message todo</small>
 
-                        <textarea type="text-area" class="form-control" id="message" name="message" placeholder="Enter name" value=""> </textarea>
+                        <textarea type="text-area" class="form-control" id="message" name="message" placeholder="Enter name" value="oke" required="hh"> </textarea>
                         <!-- form validation -->
                         <?php if (form_error('message')) : ?>
-                            <small class="text-danger"><?= form_error('message') ?></small>
+                            <small class=" text-danger"><?= form_error('message') ?></small>
                         <?php else : ?> <?php endif; ?>
                         <!-- end Form validation -->
                     </div>
@@ -118,8 +122,10 @@
 <script src="<?= base_url(); ?>assets/js/custom.js"></script>
 
 <script>
-    // $('div').on('click', function() {
-
-    //     $("#m_addtodo").modal('show');
-    // });
+    $(document).ready(function() {
+        var modal = "<?= $this->session->flashdata('modal'); ?>"
+        if (modal == "eror") {
+            $("#m_addtodo").modal('show');
+        }
+    });
 </script>

@@ -113,7 +113,7 @@
                     ],
                     [
                         'field' => 'user_recived',
-                        'label' => 'user_recived',
+                        'label' => 'Pilih salah satu untuk siapa todos ini',
                         'rules'  => 'trim|required',
                         'errors' => array(
                             'required' => '%s tidak boleh kosong'
@@ -178,9 +178,6 @@
                 $ci->session->set_flashdata('message', $mesaage);
                 $ci->session->set_flashdata('type', 'info');
             }
-            // '<div class="alert alert-success border-0 alert-dismissible mx-auto my-1 ">
-            // <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
-            // <span class="font-weight-semibold">' . $mesaage . '</div>'
 
             //=====>> End Message Alert template [3] <<=====//
 

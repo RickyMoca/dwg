@@ -39,7 +39,6 @@
                 });
             } else {
                 $.jGrowl(message, {
-                    header: 'INFO!',
                     theme: 'alert-styled-left bg-info'
                 });
             }

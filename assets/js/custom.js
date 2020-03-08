@@ -21,7 +21,7 @@ var divEnd = `</div></div>`
  *  # First run document ready
  * ---------------------------------------------------------------------------- */
 $(document).ready(function () {
-    getData();
+   
     // Date picker format
     $('.daterange-single').daterangepicker({
         singleDatePicker: true,
@@ -39,6 +39,7 @@ $(document).ready(function () {
     if (activeTab) {
         $('#tbs a[href="' + activeTab + '"]').tab('show');
     }
+    getData();
 });
 
 
@@ -48,8 +49,8 @@ $(document).ready(function () {
  *  # Fungction Event
  * ---------------------------------------------------------------------------- */
 
-function changestatus() {
-    $('input').on('click', function () {
+function td1() {
+    $('.td1').on('click', function () {
         const myid = $(this).data('oke');
         $.ajax({
             url: base_url + 'changestatus',
@@ -58,12 +59,42 @@ function changestatus() {
                 ids: myid,
             },
             success: function () {
-               
+                getData();
             }
         });
     });
 }
 
+function td2() {
+    $('.td2').on('click', function () {
+        const myid = $(this).data('oke');
+        $.ajax({
+            url: base_url + 'changestatus',
+            type: 'post',
+            data: {
+                ids: myid,
+            },
+            success: function () {
+                getData();
+            }
+        });
+    });
+}
+function td3() {
+    $('.td3').on('click', function () {
+        const myid = $(this).data('oke');
+        $.ajax({
+            url: base_url + 'changestatus',
+            type: 'post',
+            data: {
+                ids: myid,
+            },
+            success: function () {
+                getData();
+            }
+        });
+    });
+}
 
 
 
@@ -93,6 +124,7 @@ function getData() {
             $('#tab1').html(baris);
             $('.td1').uniform();
             $('#bg-1').html(data.length);
+            td1();
         }
     })
 
@@ -116,6 +148,7 @@ function getData() {
                 wrapperClass: 'border-success-600 text-success-800'
             });
             $('#bg-2').html(data.length);
+            td2();
         }
     })
 
@@ -139,11 +172,12 @@ function getData() {
                 wrapperClass: 'border-danger-600 text-danger-800'
             });
             $('#bg-3').html(data.length);
+            td3();
 
         }
     })
 
-
+   
 }
 
 

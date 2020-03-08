@@ -34,7 +34,7 @@ class M_todo extends CI_Model
 
     public function view_user()
     {
-        // Select * from v-todos where status='1'
+       
         return $this->db->get('v-userr')->result_array();
     }
 
@@ -56,4 +56,27 @@ class M_todo extends CI_Model
         $mesaage = 'Todos has ben added';
         success_message($mesaage);
     }
+
+    public function replyTodos($id,$reply){
+
+        $result = $this->db->get_where('todos_reply', array('id_todos' => $id))->num_rows();
+        if ($result == '0') {
+            // Jalankan fungsi insert
+            $this->db->insert('todos_reply', array('id_todos' => $id, 'reply_todos' => $reply, 'date_reply' => tgl_now()));
+            $mesaage = 'Reply message succesful';
+            info_message($mesaage);
+            redirect('todo/detail?id=' . $id);
+        }
+            // Jalankan Fungsi Update
+            $this->db->where('id_todos', $id);
+            $this->db->update('todos_reply', array('id_todos' => $id, 'reply_todos' => $reply, 'date_reply' => tgl_now()));
+            $mesaage = 'Reply message succesfuly updated';
+            info_message($mesaage);
+            redirect('todo/detail?id=' . $id);
+
+
+    }
+
+
+
 }
