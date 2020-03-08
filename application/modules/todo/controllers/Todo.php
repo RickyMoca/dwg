@@ -118,35 +118,13 @@ class Todo extends MY_Controller
 	public function changestatus()
 	{
 		$id_todos = $this->input->post('ids');
-
-		$this->db->where('id_todos', $id_todos);
-		$result = $this->db->get('todos')->row_array();
-
-		if ($result['status'] == '1') {
-			$data = array(
-				'status' => '0',
-				'date_completed' => ''
-			);
-			$mesaage = 'Todo has been chgange to Uncompleted';
-			info_message($mesaage);
-		} else {
-			$data = array(
-				'status' => '1',
-				'date_completed' => tgl_now()
-			);
-			$mesaage = 'Todo has been chgange to Completed';
-			info_message($mesaage);
-		}
-		$this->db->where('id_todos', $id_todos);
-		$this->db->set($data);
-		$this->db->update('todos');
+		$this->M_todo->changestatus($id_todos);
 	}
-
 
 	public function gantiStats()
 	{
-		$this->changestatus();
 		$id_todos = $this->input->get('ids');
+		$this->M_todo->changestatus($id_todos);
 		redirect('todo/detail?id=' . $id_todos);
 	}
 }
