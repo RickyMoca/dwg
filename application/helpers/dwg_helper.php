@@ -211,20 +211,12 @@
 
 
             //=====>> date and time format [5] <<=====//
-
-            function dateTime($tgl)
-            {
-
-                $hasil = strtotime($tgl);
-                return date('d-m-Y H:i:s', $hasil);
-                // use Example : dateTime('2020-03-07 21:58:19')
-            }
-
             function wkt_now()
             {
 
                 date_default_timezone_set('Asia/Jakarta');
                 return ' ' . date('H:i:s', time());
+                // untuk mendapatan waktu sekarang
             }
 
             function tgl_now()
@@ -232,7 +224,28 @@
 
                 date_default_timezone_set('Asia/Jakarta');
                 return date('Y-m-d H:i:s');
+                // untuk untuk mendapatkan waktu dan tanggal skrang
+
             }
+
+            function dateTime($tgl)
+            {
+
+                $hasil = strtotime($tgl);
+                return date('d-m-Y H:i:s', $hasil);
+                // untuk merubah tanggal format db ke indonesia
+            }
+
+            function Format_addtime($tgl) 
+            {
+                $hasil = strtotime($tgl.wkt_now());
+                return date('Y-m-d H:i:s', $hasil);
+                // untuk merubah tgl format indo saja -> ke format db & add waktu sekarang
+            }
+
+         
+
+
             //=====>> date and time format [5] <<=====//
 
 

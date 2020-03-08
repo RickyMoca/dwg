@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header header-elements-inline bg-dark">
 
-            <h3 class="card-title"><i class="mi-turned-in mi-2x mr-2"></i>On Hold Parcel Ninja</h3>
+            <h3 class="card-title"><i class="icon-drawer-in icon-2x mr-2"></i>On Hold Parcel Ninja</h3>
             <a href="#" data-toggle="modal" data-target="#m_addtodo" class="text-light"><i class="mi-queue mi-2x mr-1"></i></a>
 
         </div>

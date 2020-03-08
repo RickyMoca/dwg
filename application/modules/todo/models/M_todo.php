@@ -8,20 +8,22 @@ class M_todo extends CI_Model
     {
         // Select * from v-todos where status='0'
         $id = $this->session->userdata('id');
-        return $this->db->get_where('todos', array('user_recived' => $id, 'status' => '0'))->result();
+        $this->db->order_by('expired_todos','ASC');
+        return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '0', 'expired_todos >'=> '00:00:00'))->result();
     }
 
     public function getTodoDone()
     {
         // Select * from v-todos where status='1'
         $id = $this->session->userdata('id');
-        return $this->db->get_where('todos', array('user_recived' => $id, 'status' => '1'))->result();
+        return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '1'))->result();
     }
     public function getTodoNoResponse()
     {
         // Select * from v-todos where status='1'
         $id = $this->session->userdata('id');
-        return $this->db->get_where('todos', array('user_recived' => $id, 'status' => '0', 'due_date <' => tgl_now()))->result();
+        $this->db->order_by('expired_todos', 'ASC');
+        return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '0', 'expired_todos <' => '00:00:00'))->result();
     }
 
     public function detailTodo()
@@ -29,7 +31,7 @@ class M_todo extends CI_Model
         // get detail todo where id
         $id_todos = $this->input->get('id');
         $this->db->where('id_todos', $id_todos);
-        return $this->db->get('todos')->row_array();
+        return $this->db->get('v-todos')->row_array();
     }
 
     public function view_user()
@@ -41,7 +43,6 @@ class M_todo extends CI_Model
     public function addTodo()
     {
 
-
         $data = array(
             'user_agent' => $this->session->userdata('id'),
             'user_recived' => $this->input->post('user_recived'),
@@ -49,7 +50,7 @@ class M_todo extends CI_Model
             'subject_todos' => $this->input->post('subject'),
             'message_todos' => $this->input->post('message'),
             'status' => '0',
-            'due_date' => $this->input->post('duedate') . wkt_now()
+            'due_date' => Format_addtime($this->input->post('duedate'))
         );
 
         $this->db->insert('todos', $data);

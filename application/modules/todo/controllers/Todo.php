@@ -18,7 +18,9 @@ class Todo extends MY_Controller
 		load_template('v_index', $data);
 	}
 
-	// Begin Controler For Data Todolist ----------------------------------------------------//
+	/* ------------------------------------------------------------------------------
+	*  # Controller Untuk Todolist
+	* ---------------------------------------------------------------------------- */
 
 	//Default Landing Begin controller todolist page 
 	public function todolist()
@@ -27,6 +29,15 @@ class Todo extends MY_Controller
 		$data['page_name'] = "My Todolist";
 		$data['Vuser'] = $this->M_todo->view_user();
 		load_template('v_todo', $data);
+		destroy_flashdata();
+	}
+
+	public function multipleInsert()
+	{
+		$data['title'] = "Todolist";
+		$data['page_name'] = "My Todolist";
+		$data['Vuser'] = $this->M_todo->view_user();
+		load_template('v_todo_multiple', $data);
 		destroy_flashdata();
 	}
 
@@ -40,10 +51,15 @@ class Todo extends MY_Controller
 		destroy_flashdata();
 	}
 
-	// For add data todo
+
+	/* ------------------------------------------------------------------------------
+	*  # Controller get data Todo & Add data
+	* ---------------------------------------------------------------------------- */
+
+	// add new data todo
 	public function addtodo()
 	{
-	
+
 		$this->form_validation->set_rules(addtodo_rules());
 		if ($this->form_validation->run() == false) {
 			$mesaage = 'Someting Wrong Please Try Again.';
@@ -61,7 +77,7 @@ class Todo extends MY_Controller
 	{
 		$id = $this->input->post('id_todos');
 		$reply = $this->input->post('message');
-		$this->M_todo->replyTodos($id, $reply);	
+		$this->M_todo->replyTodos($id, $reply);
 	}
 
 
@@ -90,11 +106,15 @@ class Todo extends MY_Controller
 		$getTodos = $this->M_todo->getTodoNoResponse();
 		echo json_encode($getTodos);
 	}
-	// End Controler For Data Todolist ----------------------------------------------------
 
 
 
-	// Sellect status for change status todos
+	
+
+	/* ------------------------------------------------------------------------------
+	*  # Controller Untuk ganti status
+	* ---------------------------------------------------------------------------- */
+
 	public function changestatus()
 	{
 		$id_todos = $this->input->post('ids');
@@ -103,35 +123,30 @@ class Todo extends MY_Controller
 		$result = $this->db->get('todos')->row_array();
 
 		if ($result['status'] == '1') {
-			$this->db->query("update todos set status='0' where id_todos=$id_todos");
+			$data = array(
+				'status' => '0',
+				'date_completed' => ''
+			);
+			$mesaage = 'Todo has been chgange to Uncompleted';
+			info_message($mesaage);
 		} else {
-			$this->db->query("update todos set status='1' where id_todos=$id_todos");
+			$data = array(
+				'status' => '1',
+				'date_completed' => tgl_now()
+			);
+			$mesaage = 'Todo has been chgange to Completed';
+			info_message($mesaage);
 		}
-
+		$this->db->where('id_todos', $id_todos);
+		$this->db->set($data);
+		$this->db->update('todos');
 	}
 
 
 	public function gantiStats()
 	{
+		$this->changestatus();
 		$id_todos = $this->input->get('ids');
-
-		$this->db->where('id_todos', $id_todos);
-		$result = $this->db->get('todos')->row_array();
-
-		if ($result['status'] == '1') {
-			$statuss = '0';
-			$mesaage = 'Todo has been chgange to Uncompleted';
-			info_message($mesaage);
-		} else {
-			$statuss = '1';
-			$mesaage = 'Todo has been chgange to Completed';
-			info_message($mesaage);
-		}	
-
-		$this->db->where('id_todos', $id_todos);
-		$this->db->set('status', $statuss);
-		$this->db->update('todos');
 		redirect('todo/detail?id=' . $id_todos);
-
 	}
 }

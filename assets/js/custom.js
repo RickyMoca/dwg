@@ -26,7 +26,7 @@ $(document).ready(function () {
     $('.daterange-single').daterangepicker({
         singleDatePicker: true,
         locale: {
-            format: 'YYYY-MM-DD'
+            format: 'DD-MM-YYYY'
         }
     });
 
@@ -40,6 +40,7 @@ $(document).ready(function () {
         $('#tbs a[href="' + activeTab + '"]').tab('show');
     }
     getData();
+
 });
 
 
@@ -105,6 +106,8 @@ function td3() {
  *  # Get todolist My Todos
  * ---------------------------------------------------------------------------- */
 
+
+
 function getData() {
     $.ajax({
         url: base_url + 'getList',
@@ -113,13 +116,16 @@ function getData() {
         success: function (data) {
             var baris = '';
             for (i = 0; i < data.length; i++) {
+                var due_date = funSub(data[i].due_date);
                 baris +=
                     divStart +
                     `<label class="form-check-label"><input type="checkbox" class="change td1" data-oke="` + data[i].id_todos + `"  data-fouc></label>
-                       <a href="detail?id=`+ data[i].id_todos + `"><span>` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="mi-event-available ml-1"></i> ` + data[i].due_date + `</span></a> `
+                       <a href="detail?id=`+ data[i].id_todos + `" class="text-dark"><span>` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i>
+                      <strong><small class="text-warning">` + 'Duedate : ' + data[i].expired_todos +`</small></strong>
+                    </span></a> `
                     + divEnd
             }
-            baris += '<strong><a href="" class="text-dark"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
+            // baris += '<strong><a href="" class="text-dark"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
 
             $('#tab1').html(baris);
             $('.td1').uniform();
@@ -142,7 +148,7 @@ function getData() {
                  <a href="detail?id=`+ data[i].id_todos + `"><span class="text-success"><del>` + data[i].subject_todos + ` ` + data[i].message_todos + `</del><i class="mi-swap-horiz ml-1"></i><i class="mi-check-box ml-1"></i> <strong>Completed</strong></span></a>
                 `+ divEnd
             }
-            html += '<strong><a href="#" class="text-success"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
+            // html += '<strong><a href="#" class="text-success"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
             $('#tab2').html(html);
             $('.td2').uniform({
                 wrapperClass: 'border-success-600 text-success-800'
@@ -162,10 +168,10 @@ function getData() {
                 nores +=
                     divStart + `
                 <label class="form-check-label"><input type="checkbox" class="change td3" data-oke="`+ data[i].id_todos + `"  data-fouc></label>
-                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-danger">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="mi-block ml-1"></i> <strong>Noresponse Harus segera dikonfirmasi !</strong></span></a>
+                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-danger">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="icon-cross3 ml-1"></i><strong>Noresponse!</strong></span></a>
                 `+ divEnd
             }
-            nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
+            // nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
 
             $('#tab3').html(nores);
             $('.td3').uniform({
@@ -180,6 +186,42 @@ function getData() {
    
 }
 
+function funSub(strr) {
+    var sbs = strr.split(' ');
+    var tanggal = sbs[0].split('-');
+    return tanggal[2] + '-' + tanggal[1] + '-' + tanggal[0] + ' ' + sbs[1];
+}
 
 
+function getDateTime() {
+    n = new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    mm = n.getMinutes();
+    h = n.getHours();
+    s = n.getSeconds();
+    ms = n.getMilliseconds();
+
+
+    if (m < 10) {
+        m = '0' + m;
+    }
+
+    if (d < 10) {
+        d = '0' + d;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    if (h < 10) {
+        h = '0' + h;
+    }
+    if (ms < 10) {
+        ms = '0' + ms;
+    }
+
+    return d + '-' + m + '-' + y + ' ' + h + ':' + mm + ':' + ms;
+}
 

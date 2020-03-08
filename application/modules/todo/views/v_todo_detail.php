@@ -7,7 +7,7 @@
                 Back to my todos
             </h3>
 
-            <button class="btn sm-light" id="pilih" data-clipboard-text="<?= $detail['subject_todos'] . ' - ' . $detail['message_todos'] ?>"><i class="icon-paste2 icon-1x"></i> Copy</button>
+            <button class="btn copy btn-sm-light" id="pilih" data-clipboard-text="<?= $detail['subject_todos'] . ' - ' . $detail['reply_todos']; ?>"><i class="icon-stack icon-1x"></i> Copy</button>
         </div>
         <div id="message"></div>
         <div class="card-body bg-light">
@@ -23,21 +23,21 @@
                             </i></a><strong> <?= $detail['subject_todos']; ?></strong>
                 </h1>
 
-                <span class="badge badge-light badge-striped badge-striped-right badge-icon border-right-teal-300"><i class="icon-user"></i> From : Mohamad Ricky</span>
-                <span class="badge badge-light badge-striped badge-striped-right badge-icon border-right-teal-300"><i class="icon-calendar"></i> 24/05/2020</span>
+                <span class="badge badge-light"><i class="icon-user"></i> From : Mohamad Ricky</span>
+                <span class="badge badge-light "><i class="icon-calendar"></i> <?= dateTime($detail['due_date']) ?></span>
 
             </div>
 
             <hr>
 
             <div class="col-md-12 border-bottom-2 bg-primary border-warning py-2">
-                <span class="badge badge-dark float-right">Message From : Mohamad Ricky</span>
+                <span class="badge badge-dark float-right"><?= $detail['name_agent']; ?></span>
                 <h5 id="message"><i class="icon-bubble-dots3 mr-2"></i> <?= $detail['message_todos']; ?></h5>
             </div>
             <div class="col-md-12 border-bottom-2 bg-light border-dark py-2">
                 <span class="badge badge-dark float-right">Your Reply</span>
 
-                <h5><i class="mi-reply mr-2"></i>Oke siapp a</h5>
+                <h5><i class="mi-reply mr-2"></i><?= $detail['reply_todos'] ?></h5>
             </div>
 
             <form action="<?= base_url('todo/replyTodo') ?>" method="post">
@@ -60,9 +60,9 @@
 <script type="text/javascript">
     $('#pilih').on('click', function() {
 
-        new ClipboardJS('.btn');
+        new ClipboardJS('.copy');
         $.jGrowl('Data Successfuly Copy to Clipboard', {
-            theme: 'alert-styled-left bg-dark'
+            theme: 'alert-styled-left bg-info'
         });
 
 

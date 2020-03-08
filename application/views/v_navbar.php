@@ -48,12 +48,7 @@
              <?php
 
                 $role_id = $this->session->userdata('role_id');
-                $queryMenu = "SELECT `user_menu`.`id`, `menu`
-                            FROM `user_menu` JOIN `user_access_menu`
-                              ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-                           WHERE `user_access_menu`.`role_id` = $role_id
-                        ORDER BY `user_access_menu`.`menu_id` ASC
-                        ";
+                $queryMenu = "SELECT menu_id,menu FROM `v-access` WHERE role_id = '1' ORDER BY menu_id ASC";
                 $menu = $this->db->query($queryMenu)->result_array();
                 ?>
 
@@ -62,14 +57,8 @@
 
                  <!-- SIAPKAN SUB-MENU SESUAI MENU -->
                  <?php
-                    $menuId = $m['id'];
-                    $querySubMenu = "SELECT *
-                               FROM `user_sub_menu` JOIN `user_menu` 
-                                 ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-                              WHERE `user_sub_menu`.`menu_id` = $menuId
-                                AND `user_sub_menu`.`is_active` = 1 
-                                ORDER BY `user_sub_menu`.`position` ASC
-                        ";
+                    $menuId = $m['menu_id'];
+                    $querySubMenu = "SELECT * FROM `v-submenuu` WHERE `is_active` = '1' AND menu_id = $menuId ORDER BY `position` ASC";
                     $subMenu = $this->db->query($querySubMenu)->result_array();
                     ?>
 
