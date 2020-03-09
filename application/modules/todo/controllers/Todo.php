@@ -106,10 +106,16 @@ class Todo extends MY_Controller
 		$getTodos = $this->M_todo->getTodoNoResponse();
 		echo json_encode($getTodos);
 	}
+	// Get data Todolist i Asign
+	public function getIassign()
+	{
+		$getTodos = $this->M_todo->Iassign();
+		echo json_encode($getTodos);
+	}
 
 
 
-	
+
 
 	/* ------------------------------------------------------------------------------
 	*  # Controller Untuk ganti status

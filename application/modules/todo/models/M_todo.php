@@ -8,8 +8,8 @@ class M_todo extends CI_Model
     {
         // Select * from v-todos where status='0'
         $id = $this->session->userdata('id');
-        $this->db->order_by('expired_todos','ASC');
-        return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '0', 'expired_todos >'=> '00:00:00'))->result();
+        $this->db->order_by('expired_todos', 'ASC');
+        return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '0', 'expired_todos >' => '00:00:00'))->result();
     }
 
     public function getTodoDone()
@@ -26,6 +26,14 @@ class M_todo extends CI_Model
         return $this->db->get_where('v-todos', array('user_recived' => $id, 'status' => '0', 'expired_todos <' => '00:00:00'))->result();
     }
 
+    public function Iassign()
+    {
+        // get detail todo where user agent
+        $user_agent = $this->session->userdata('id');
+        $this->db->where('user_agent', $user_agent);
+        return $this->db->get('v-todos')->result();
+    }
+
     public function detailTodo()
     {
         // get detail todo where id
@@ -34,9 +42,11 @@ class M_todo extends CI_Model
         return $this->db->get('v-todos')->row_array();
     }
 
+
+
     public function view_user()
     {
-       
+
         return $this->db->get('v-userr')->result_array();
     }
 
@@ -58,7 +68,8 @@ class M_todo extends CI_Model
         success_message($mesaage);
     }
 
-    public function replyTodos($id,$reply){
+    public function replyTodos($id, $reply)
+    {
 
         $result = $this->db->get_where('todos_reply', array('id_todos' => $id))->num_rows();
         if ($result == '0') {
@@ -68,14 +79,12 @@ class M_todo extends CI_Model
             info_message($mesaage);
             redirect('todo/detail?id=' . $id);
         }
-            // Jalankan Fungsi Update
-            $this->db->where('id_todos', $id);
-            $this->db->update('todos_reply', array('id_todos' => $id, 'reply_todos' => $reply, 'date_reply' => tgl_now()));
-            $mesaage = 'Reply message succesfuly updated';
-            info_message($mesaage);
-            redirect('todo/detail?id=' . $id);
-
-
+        // Jalankan Fungsi Update
+        $this->db->where('id_todos', $id);
+        $this->db->update('todos_reply', array('id_todos' => $id, 'reply_todos' => $reply, 'date_reply' => tgl_now()));
+        $mesaage = 'Reply message succesfuly updated';
+        info_message($mesaage);
+        redirect('todo/detail?id=' . $id);
     }
 
     public function changestatus($id_todos)
@@ -103,7 +112,4 @@ class M_todo extends CI_Model
         $this->db->set($data);
         $this->db->update('todos');
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-<div class="col-md-10 mx-auto">
+<div class="col-md-12 mx-auto">
     <div class="card">
         <div class="card-header header-elements-inline bg-dark">
 
@@ -10,18 +10,22 @@
         <div class="card-body bg-light">
 
             <!-- Header Tabs -->
-            <ul class="nav nav-tabs nav-tabs-highlight-dark nav-justified col-md-7" id="tbs">
+            <ul class="nav nav-tabs nav-tabs-highlight-dark nav-justified col-md-8" id="tbs">
                 <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">
                         <i class="icon-user mr-1"></i>My Todos
                         <span class="badge bg-dark badge-pill ml-2" id="bg-1"></span></a>
                 </li>
-                <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">
-                        <i class="icon-clipboard2 mr-1"></i>Completed
-                        <span class="badge bg-success badge-pill ml-2" id="bg-2"></span></a>
-                </li>
                 <li class="nav-item"><a href="#tab3" class="nav-link" data-toggle="tab">
                         <i class="mi-block mr-1"></i>No Response
                         <span class="badge bg-danger badge-pill ml-2" id="bg-3"></span></a>
+                </li>
+                <li class="nav-item"><a href="#tab4" class="nav-link" data-toggle="tab">
+                        <i class="icon-paperplane mr-1"></i>I Assign
+                        <span class="badge bg-primary badge-pill ml-2" id="bg-4"></span></a>
+                </li>
+                <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">
+                        <i class="icon-clipboard2 mr-1"></i>Completed
+                        <span class="badge bg-success badge-pill ml-2" id="bg-2"></span></a>
                 </li>
             </ul>
             <!--/Header Tabs -->
@@ -32,6 +36,7 @@
                 <div class="tab-pane fade show active" id="tab1">No data</div>
 
                 <div class="tab-pane fade" id="tab2">No data</div>
+                <div class="tab-pane fade" id="tab4">No data</div>
 
                 <div class="tab-pane fade" id="tab3">No data</div>
             </div>

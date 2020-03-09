@@ -21,7 +21,7 @@ var divEnd = `</div></div>`
  *  # First run document ready
  * ---------------------------------------------------------------------------- */
 $(document).ready(function () {
-   
+
     // Date picker format
     $('.daterange-single').daterangepicker({
         singleDatePicker: true,
@@ -121,7 +121,7 @@ function getData() {
                     divStart +
                     `<label class="form-check-label"><input type="checkbox" class="change td1" data-oke="` + data[i].id_todos + `"  data-fouc></label>
                        <a href="detail?id=`+ data[i].id_todos + `" class="text-dark"><span>` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i>
-                      <strong><small class="text-warning">` + 'Duedate : ' + data[i].expired_todos +`</small></strong>
+                      <strong><small class="text-warning">` + 'Duedate : ' + data[i].expired_todos + `</small></strong>
                     </span></a> `
                     + divEnd
             }
@@ -168,7 +168,7 @@ function getData() {
                 nores +=
                     divStart + `
                 <label class="form-check-label"><input type="checkbox" class="change td3" data-oke="`+ data[i].id_todos + `"  data-fouc></label>
-                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-danger">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="icon-cross3 ml-1"></i><strong>Noresponse!</strong></span></a>
+                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-danger">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="icon-fire ml-1"></i><strong>Noresponse!</strong></span></a>
                 `+ divEnd
             }
             // nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
@@ -183,7 +183,32 @@ function getData() {
         }
     })
 
-   
+    $.ajax({
+        url: base_url + 'getIassign',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var isign = '';
+            for (i = 0; i < data.length; i++) {
+                isign +=
+                    divStart + `
+                <label class="form-check-label"><input type="checkbox" class="change td4" data-oke="`+ data[i].id_todos + `"  data-fouc></label>
+                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-primary">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="icon-paperplane ml-1"></i><strong> Your Assign Todos</strong></span></a>
+                `+ divEnd
+            }
+            // nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
+
+            $('#tab4').html(isign);
+            $('.td4').uniform({
+                wrapperClass: 'border-primary-600 text-primary-800'
+            });
+            $('#bg-4').html(data.length);
+            td3();
+
+        }
+    })
+
+
 }
 
 function funSub(strr) {
