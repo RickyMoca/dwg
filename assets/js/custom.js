@@ -190,11 +190,20 @@ function getData() {
         success: function (data) {
             var isign = '';
             for (i = 0; i < data.length; i++) {
+                if (data[i].status=='0'){
                 isign +=
                     divStart + `
                 <label class="form-check-label"><input type="checkbox" class="change td4" data-oke="`+ data[i].id_todos + `"  data-fouc></label>
                  <a href="detail?id=`+ data[i].id_todos + `"><span class="text-primary">` + data[i].subject_todos + ` ` + data[i].message_todos + `<i class="mi-swap-horiz ml-1"></i><i class="icon-paperplane ml-1"></i><strong> Your Assign Todos</strong></span></a>
                 `+ divEnd
+                }else{
+                isign +=
+                    divStart + `
+                <label class="form-check-label"><input type="checkbox" checked class="change td4" data-oke="`+ data[i].id_todos + `"  data-fouc></label>
+                 <a href="detail?id=`+ data[i].id_todos + `"><span class="text-dark"><del>` + data[i].subject_todos + ` ` + data[i].message_todos + `</del><i class="mi-swap-horiz ml-1"></i><i class="icon-paperplane ml-1"></i><strong> Your Assign Todos</strong></span></a>
+                `+ divEnd
+                }
+
             }
             // nores += '<strong><a href="#" class="text-danger"><i class="mi-cached ml-1"></i> Load More . .</a></strong>';
 
