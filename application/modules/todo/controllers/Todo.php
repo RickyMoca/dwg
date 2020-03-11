@@ -68,6 +68,7 @@ class Todo extends MY_Controller
 			$this->todolist();
 		} else {
 			$this->M_todo->addTodo();
+			$this->session->set_flashdata('modal', 'eror');
 			redirect('todo/todolist');
 		}
 	}
